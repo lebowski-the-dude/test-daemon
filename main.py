@@ -22,7 +22,7 @@ def setLaptopScreen() -> None:
     os.system("xrandr --output eDP --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off")
 
 
-def logic() -> None:
+def daemon() -> None:
     while True:
         if checkDisplayConnection() is True:
             syslog.syslog("display connected")
@@ -34,5 +34,10 @@ def logic() -> None:
         time.sleep(10)
 
 
-daemon = Daemonize(app="test_daemon", pid=args.pid_file, action=logic)
-daemon.start()
+def main():
+    daemonize = Daemonize(app="test_daemon", pid=args.pid_file, action=daemon)
+    daemonize.start()
+
+
+if __name__ == "main":
+    main()
