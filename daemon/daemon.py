@@ -39,7 +39,7 @@ def checkCommands() -> bool:
 def daemon() -> None:
     while True:
         check = checkDisplayConnection()
-        syslog.syslog(f"checkDisplayConnection {check}")
+        syslog.syslog(f"checkDisplayConnection: {check}")
         if check is True:
             syslog.syslog("display connected")
             setMonitorScreen()
