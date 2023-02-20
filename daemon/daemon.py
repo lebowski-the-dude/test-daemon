@@ -23,13 +23,13 @@ def setLaptopScreen() -> None:
 
 
 def checkCommands() -> bool:
-    if os.system("awk &>/dev/null") != 0:
-        syslog.syslog("awk is not installed")
-        return False
     if os.system("xrandr &>/dev/null") != 0:
         syslog.syslog("xrandr is not installed")
         return False
-    if os.system("grep &>/dev/null") != 0:
+    if os.system("awk &>/dev/null") != 256:
+        syslog.syslog("awk is not installed")
+        return False
+    if os.system("grep &>/dev/null") != 512:
         syslog.syslog("grep is not installed")
         return False
 
@@ -49,8 +49,8 @@ def daemon() -> None:
 
 
 def main():
-    # if checkCommands() is not True:
-    #     return
+    if checkCommands() is not True:
+        return
 
     daemonize = Daemonize(app="test_daemon", pid=args.pid_file, action=daemon)
     daemonize.start()
