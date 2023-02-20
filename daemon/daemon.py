@@ -23,11 +23,12 @@ def setLaptopScreen() -> None:
 
 
 def checkCommands() -> bool:
+    if os.system("awk &>/dev/null") != 0:
+        syslog.syslog(os.system("awk"))
+        syslog.syslog("awk is not installed")
+        return False
     if os.system("xrandr &>/dev/null") != 0:
         syslog.syslog("xrandr is not installed")
-        return False
-    if os.system("awk &>/dev/null") != 0:
-        syslog.syslog("awk is not installed")
         return False
     if os.system("grep &>/dev/null") != 0:
         syslog.syslog("grep is not installed")
