@@ -52,6 +52,7 @@ def daemon() -> None:
         syslog.syslog("----------------")
         syslog.syslog(f"{result.stdout}")
         syslog.syslog(f"{result.stderr}")
+        syslog.syslog(f"{result.returncode}")
         syslog.syslog("----------------")
 
         time.sleep(10)
