@@ -46,8 +46,7 @@ def daemon() -> None:
         # else:
         #     syslog.syslog("display is not connected")
         #     setLaptopScreen()
-        check = os.system("xrandr")
-        syslog.syslog(f"{check}")
+        os.system("xrandr --output eDP --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off")
 
         time.sleep(10)
 
