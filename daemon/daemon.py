@@ -4,6 +4,8 @@ import syslog
 import time
 from daemonize import Daemonize
 
+import subprocess
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-p", "--pid-file", help="where store the pid file")
 args = parser.parse_args()
@@ -46,7 +48,7 @@ def daemon() -> None:
         # else:
         #     syslog.syslog("display is not connected")
         #     setLaptopScreen()
-        os.system("xrandr --output eDP --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --off")
+        subprocess.run(["xrandr", "--output", "eDP", "--mode", "1920x1080", "--pos", "0x0", "--rotate", "normal", "--output", "HDMI-A-0", "--off"])
 
         time.sleep(10)
 
