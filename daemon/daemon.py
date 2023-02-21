@@ -46,7 +46,8 @@ def daemon() -> None:
         # else:
         #     syslog.syslog("display is not connected")
         #     setLaptopScreen()
-        syslog.syslog(os.system("xrandr"))
+        check = os.system("xrandr")
+        syslog.syslog(f"{check}")
 
         time.sleep(10)
 
