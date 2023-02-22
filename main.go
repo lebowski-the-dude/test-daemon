@@ -45,6 +45,7 @@ func testFunction() {
 func getOutput() string {
     out, err := exec.Command("xrandr").Output()
     if err != nil {
+		log.Printf(err)
         log.Fatal(err)
     }
     outString := fmt.Sprintf("%s", out)
