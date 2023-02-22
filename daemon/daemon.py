@@ -63,5 +63,6 @@ def main():
     # if checkCommands() is not True:
     #     return
 
-    daemonize = Daemonize(app="test_daemon", pid=args.pid_file, action=daemon)
+    daemonize = Daemonize(app="test_daemon", pid=args.pid_file, action=daemon,
+                          user="root")
     daemonize.start()
