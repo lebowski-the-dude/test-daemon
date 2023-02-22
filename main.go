@@ -16,7 +16,8 @@ func main() {
 		LogFileName: "/var/log/sample.log",
 		LogFilePerm: 0640,
 		WorkDir:     "/",
-		Umask:       027,
+		// Umask:       027,
+		Umask:       666,
 		Args:        []string{"[go-daemon sample]"},
 	}
 
