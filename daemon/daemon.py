@@ -64,6 +64,6 @@ def main():
     #     return
 
     daemonize = Daemonize(app="test_daemon", pid=args.pid_file,
-                          # action=daemon,
+                          action=checkCommands,
                           user="root", group="root", privileged_action=daemon, verbose=True)
     daemonize.start()
