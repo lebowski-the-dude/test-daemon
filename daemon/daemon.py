@@ -48,8 +48,7 @@ def daemon() -> None:
         # else:
         #     syslog.syslog("display is not connected")
         #     setLaptopScreen()
-        # result = subprocess.run(["xrandr", "--output", "eDP", "--mode", "1920x1080", "--pos", "0x0", "--rotate", "normal", "--output", "HDMI-A-0", "--off"], stdout=subprocess.PIPE)
-        result = subprocess.run(["ls"])
+        result = subprocess.run(["xrandr", "--output", "eDP", "--mode", "1920x1080", "--pos", "0x0", "--rotate", "normal", "--output", "HDMI-A-0", "--off"], stdout=subprocess.PIPE)
         syslog.syslog("----------------")
         syslog.syslog(f"{result.stdout}")
         syslog.syslog(f"{result.stderr}")
