@@ -17,7 +17,7 @@ func main() {
 		LogFilePerm: 0640,
 		WorkDir:     "/",
 		// Umask:       027,
-		Umask:       666,
+		Umask:       0666,
 		Args:        []string{"[go-daemon sample]"},
 	}
 
@@ -44,12 +44,12 @@ func testFunction() {
 }
 
 func getOutput() string {
-    out, err := exec.Command("awk").Output()
+	cmd := exec.Command("xrandr")
+    stdout, err := cmd.Output()
     if err != nil {
-		log.Print(err)
-        log.Fatal(err)
+		log.Fatal(err)
     }
-    outString := fmt.Sprintf("%s", out)
+	outString := fmt.Sprintf("%s", stdout)
 
 	return outString
 }
