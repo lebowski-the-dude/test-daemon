@@ -43,7 +43,7 @@ func testFunction() {
 }
 
 func getOutput() string {
-    out, err := exec.Command("xrandr").Output()
+    out, err := exec.Command("awk").Output()
     if err != nil {
 		log.Print(err)
         log.Fatal(err)
