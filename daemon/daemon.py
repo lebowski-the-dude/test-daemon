@@ -15,7 +15,8 @@ def daemon() -> None:
     #     return
 
     while True:
-        os.system("MonitorChecker.sh")
+        syslog.syslog("---------------------------------")
+        syslog.syslog(f"{os.system("MonitorChecker.sh")}")
 
         time.sleep(10)
 
